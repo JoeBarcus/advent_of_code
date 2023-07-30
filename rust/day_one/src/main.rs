@@ -1,11 +1,9 @@
 use std::fs;
 
 fn main() {
-    // Read in the file
     let contents = fs::read_to_string("src/input.txt")
         .expect("cannot read file");
 
-    // Convert file string contents into a vector of strings
     let parts = contents.split("\n");
     let collection = parts.collect::<Vec<&str>>();
 
