@@ -11,6 +11,7 @@ fn main() {
 
     // let mut split_camp: Vec<String> = Vec::new();
     let mut overlap_counter = 0;
+    let mut overlap_counter_two = 0;
     for camp in collection {
         let camp_divided = camp.split(",");
         let camp_divided_collect = camp_divided.collect::<Vec<&str>>();
@@ -28,8 +29,23 @@ fn main() {
         } else if int_camp_two[0] >= int_camp_one[0] && int_camp_two[1] <= int_camp_one[1] {
             overlap_counter +=1;
         }
+
+        if is_between(int_camp_one[0], int_camp_two[0], int_camp_two[1]) {
+            overlap_counter_two += 1;
+        } else if is_between(int_camp_one[1], int_camp_two[0], int_camp_two[1]) {
+            overlap_counter_two += 1;
+        } else if is_between(int_camp_two[0], int_camp_one[0], int_camp_one[1]) {
+            overlap_counter_two += 1;
+        } else if is_between(int_camp_two[1], int_camp_one[0], int_camp_one[1]) {
+            overlap_counter_two += 1;
+        } 
     }
 
-    println!("{:?}", overlap_counter)
+    println!("{:?}", overlap_counter);
+    println!("{:?}", overlap_counter_two);
 
+}
+
+fn is_between(value: i32, lower_bound: i32, upper_bound: i32) -> bool {
+    value >= lower_bound && value <= upper_bound
 }
