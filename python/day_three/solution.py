@@ -31,3 +31,22 @@ for ruck in split_rucksacks:
     similar_char_list.append(mapped_value)
 
 print(sum(similar_char_list))
+
+
+##############  Part 2  ##############
+
+
+letter_list = []
+for i in range(0, len(rucksack_data), 3):
+    three_items = rucksack_data[i:i + 3]
+    three_sets = [set(string) for string in three_items]
+
+    common_letter = set.intersection(*three_sets)
+    letter_list.append(common_letter)
+
+letter_list_converted = [''.join(letters) for letters in letter_list]
+
+mapped_values = [result_map[item] for item in letter_list_converted]
+
+print(sum(mapped_values))
+
