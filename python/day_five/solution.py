@@ -56,6 +56,22 @@ deque_mappings = {
     9: d_nine,
 }
 
+# for move in crate_moves:
+#     parts = move.split(' ')
+#     quantity = int(parts[1])
+#     d_from = int(parts[3])
+#     d_to = int(parts[5])
+#     for qty in range(quantity):
+#         deque_mappings.get(d_to).appendleft(deque_mappings.get(d_from).popleft())
+        
+
+# for deq in deque_mappings:
+#     print(deque_mappings.get(deq)[0])
+
+
+###########  Part 2  ###########
+
+
 for move in crate_moves:
     popped_list = []
     parts = move.split(' ')
@@ -63,9 +79,11 @@ for move in crate_moves:
     d_from = int(parts[3])
     d_to = int(parts[5])
     for qty in range(quantity):
-        deque_mappings.get(d_to).appendleft(deque_mappings.get(d_from).popleft())
-        
+        popped_list.append(deque_mappings.get(d_from).popleft())
+    print(popped_list)
+    popped_list.reverse()
+    for popped in popped_list:
+        deque_mappings.get(d_to).appendleft(popped)
 
 for deq in deque_mappings:
-    print(deque_mappings.get(deq))
-
+    print(deque_mappings.get(deq)[0])
