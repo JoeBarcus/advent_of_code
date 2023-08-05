@@ -16,3 +16,19 @@ for i, letter in enumerate(signal_packet):
 
 
 print(packet)
+
+
+consecutive_counter_set = set()
+
+for i, letter in enumerate(signal_packet):
+    if letter in consecutive_counter_set:
+        consecutive_counter_set = set()
+        continue
+    consecutive_counter_set.add(letter)
+    
+    if len(consecutive_counter_set) == 14:
+        packet = i + 1
+        break
+
+
+print(packet)
