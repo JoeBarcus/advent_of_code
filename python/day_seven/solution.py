@@ -35,8 +35,15 @@ for command in directories:
         
         total_size = 0
 
-at_most = 100_000
+at_most = 100000
 
 d = {k: v for (k, v) in directory_dict.items() if v <= at_most}
 
 print(sum(d.values()))
+
+minimum_delete_size = 70_000_000 - directory_dict['']
+print(directory_dict)
+
+e = {k: v for (k, v) in directory_dict.items() if v >= minimum_delete_size}
+
+print(sum(e.values()))
