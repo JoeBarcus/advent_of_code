@@ -1,2 +1,2 @@
-# 2022 Advent of Code
-Working through 2022 advent of code, first with Python then re-implementing in Rust.
+# 2023 Advent of Code
+Working through 2023 advent of code with Python
